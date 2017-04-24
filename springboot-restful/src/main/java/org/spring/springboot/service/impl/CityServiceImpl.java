@@ -28,18 +28,42 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public Long saveCity(City city) {
-        return cityDao.saveCity(city);
+    public String saveCity(City city) {
+    	if (cityDao.findById(city.getId()) != null) {
+    		return "您要保存的对象已经存在 ！";
+    	} else {
+    		if (cityDao.saveCity(city) == 1) {
+    			return "保存成功 ！";
+    		} else {
+    			return "保存失败 ！！";
+    		}
+    	}
     }
 
     @Override
-    public Long updateCity(City city) {
-        return cityDao.updateCity(city);
+    public String updateCity(City city) {
+    	if (cityDao.findById(city.getId()) == null) {
+    		return "您要更新的对象不存在 ！";
+    	} else {
+    		if (cityDao.updateCity(city) == 1) {
+    			return "更新成功 ！";
+    		} else {
+    			return "更新失败 ！！";
+    		}
+    	}
     }
 
     @Override
-    public Long deleteCity(Long id) {
-        return cityDao.deleteCity(id);
+    public String deleteCity(Long id) {
+    	if (cityDao.findById(id) == null) {
+    		return "您要删除的对象不存在 ！";
+    	} else {
+    		if (cityDao.deleteCity(id) == 1) {
+    			return "删除成功 ！";
+    		} else {
+    			return "删除失败 ！！";
+    		}
+    	}
     }
 
 }

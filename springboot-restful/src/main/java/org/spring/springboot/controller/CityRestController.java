@@ -30,17 +30,17 @@ public class CityRestController {
     }
 
     @RequestMapping(value = "/api/city", method = RequestMethod.POST)
-    public void createCity(@RequestBody City city) {
-        cityService.saveCity(city);
+    public String createCity(@RequestBody City city) {
+        return cityService.saveCity(city);
     }
 
     @RequestMapping(value = "/api/city", method = RequestMethod.PUT)
-    public void modifyCity(@RequestBody City city) {
-        cityService.updateCity(city);
+    public String modifyCity(@RequestBody City city) {
+        return cityService.updateCity(city);
     }
 
     @RequestMapping(value = "/api/city/{id}", method = RequestMethod.DELETE)
-    public void modifyCity(@PathVariable("id") Long id) {
-        cityService.deleteCity(id);
+    public String modifyCity(@PathVariable("id") Long id) {
+        return cityService.deleteCity(id);
     }
 }

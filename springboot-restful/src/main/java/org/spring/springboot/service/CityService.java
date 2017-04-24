@@ -32,7 +32,7 @@ public interface CityService {
      * @param city
      * @return
      */
-    Long saveCity(City city);
+    String saveCity(City city);
 
     /**
      * 更新城市信息
@@ -40,7 +40,7 @@ public interface CityService {
      * @param city
      * @return
      */
-    Long updateCity(City city);
+    String updateCity(City city);
 
     /**
      * 根据城市 ID,删除城市信息
@@ -48,5 +48,5 @@ public interface CityService {
      * @param id
      * @return
      */
-    Long deleteCity(Long id);
+    String deleteCity(Long id);
 }
