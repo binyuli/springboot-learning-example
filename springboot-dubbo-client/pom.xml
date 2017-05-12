@@ -49,4 +49,16 @@
         </dependency>
 
     </dependencies>
+    
+      <!-- 如果不配置下面的插件则无法以 java -jar 的方式启动服务 -->
+  <build>
+    <finalName>springboot-mybatis</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+  </build>
+
 </project>
